@@ -1,0 +1,48 @@
+.converter {
+  width: 100%;
+  padding: 15px 0px;
+
+  &:first-child{
+    margin-right: 10px;
+  }
+
+  &__input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    padding: 20px 20px;
+    letter-spacing: 1.3px;
+    outline: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
+
+.dropdown {
+  width: 100%;
+  background-color: white;
+  position: relative;
+  margin-bottom: 8px;
+  
+  &__header {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  &__list {
+    position: absolute;
+    list-style: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    z-index: 11;
+    background-color: #f9f2ed;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  &__list-item {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+}
