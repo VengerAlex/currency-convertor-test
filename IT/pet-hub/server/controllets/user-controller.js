@@ -14,6 +14,34 @@ class UserController {
             });
         }
     }
+
+    async login(req, res){
+        try {
+            const {email, password} = req.body;
+
+            const userDate = await UserService.login(email, password);
+
+            return res.json(userDate);
+        } catch(error){
+            res.status(500).json({
+                message: 'Не удалось залогиниться',
+            });
+        }
+    }
+
+    async auth(req, res){
+        try {
+            const id = req.userId;
+
+            const user = await UserService.getUser(id);
+
+            return res.json({user: user})
+        } catch(error){
+            res.status(500).json({
+                message: 'Нет доступа',
+            });
+        }
+    }
 }
 
 module.exports = new UserController();

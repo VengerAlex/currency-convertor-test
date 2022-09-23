@@ -3,14 +3,16 @@ import {Link, useLocation} from "react-router-dom";
 
 import Items from "./Items";
 import FilterSearch from "./FilterSearch";
-import {useAppSelector} from "../../../../../pet-hub/my-app/src/hooks/useAppSelectore";
 
-import "../../../../../pet-hub/my-app/src/styles/header.scss"
+import "../../styles/header.scss"
 import Logo from "../../assets/img/logo.jpg"
+import {useAppSelector} from "../../hooks/useAppSelector";
+import Avatar from "./Avatar";
+
 
 const Header: FC = () => {
-    const {isAuth} = useAppSelector(state => state.user);
     const {pathname} = useLocation();
+    const {user} = useAppSelector(state => state.user)
 
     if (pathname === "/login") return null
 
@@ -25,18 +27,9 @@ const Header: FC = () => {
 
                 <Items />
                 <FilterSearch />
+                <Avatar />
 
-                {isAuth && <div className="header__avatar">
-                    <div className="header__avatar-img">
-                        <img src="https://icon-library.com/images/icon-avatar/icon-avatar-19.jpg" alt="avatar"/>
-                    </div>
-                    <div className="header__avatar-box">
-                        <h4 className="header__avatar-username">Maximus</h4>
-                        <span className="header__avatar-rating">4.3k</span>
-                    </div>
-                </div>}
-
-                {!isAuth && (
+                {!user && (
                      <div className="header__login">
                          <Link to="/login">
                              <button>Login</button>

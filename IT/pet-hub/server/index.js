@@ -1,17 +1,21 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const router = require("./router/index");
+const authRouter = require("./router/authRouter");
+const postRouter = require("./router/postsRouter");
+const fileupload = require("express-fileupload");
 require("dotenv").config();
 
 
-const PORT = process.env.PORT || 1000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors());
+app.use(fileupload());
+app.use(express.static("uploads"));
 app.use(express.json());
-app.use("/api", router);
-
+app.use("/api/auth", authRouter);
+app.use("/api/posts", postRouter);
 
 const start = async () => {
     try {

@@ -1,19 +1,30 @@
-import {FC} from "react";
+import {FC, ReactNode} from "react";
 
 import * as ReactIconsAi from 'react-icons/ai';
 import * as ReactIconsBi from 'react-icons/bi';
-import * as ReactIconsFi from 'react-icons/fi';
+import * as ReactIconsMd from 'react-icons/md';
 
-let IconComponent;
+interface Icon {
+    icon: string
+}
 
-const Icon: FC<{name: string }> = ({name}) => {
-    if (name.startsWith("Ai")){
-        IconComponent = ReactIconsAi[name]
-    } else if(name.startsWith("Bi")){
-        IconComponent = ReactIconsBi[name]
-    }else {
-        IconComponent = ReactIconsFi[name]
+let IconComponent
+
+const Icon: FC<Icon> = ({icon}): any => {
+    switch (icon){
+        case "AiOutlineHome":
+            IconComponent = ReactIconsAi["AiOutlineHome"]
+            break
+        case "BiNews":
+            IconComponent = ReactIconsBi["BiNews"]
+            break
+        case "MdHistoryEdu":
+            IconComponent = ReactIconsMd["MdHistoryEdu"]
+            break
+        default:
+            IconComponent = ReactIconsAi["AiOutlineHome"]
     }
+
 
     return <IconComponent />
 };

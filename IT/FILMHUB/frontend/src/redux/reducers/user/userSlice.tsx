@@ -11,11 +11,9 @@ const initialState: IUser = {
 }
 
 const userSlice = createSlice({
-    name: "userSlice",
+    name: "user",
     initialState,
-    reducers: {
-
-    }
+    reducers: {}
 })
 
 export default userSlice.reducer;

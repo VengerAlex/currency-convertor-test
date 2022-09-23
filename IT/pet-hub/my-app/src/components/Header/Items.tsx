@@ -1,10 +1,10 @@
 import {FC} from 'react';
 import {Link, useLocation} from "react-router-dom";
 
-import Icon from "../../../../../pet-hub/my-app/src/components/Icon";
+import Icon from "../Icon";
 
-import {items} from "../../../../../pet-hub/my-app/src/utils/data";
-import "../../../../../pet-hub/my-app/src/styles/header.scss"
+import {items} from "../../utils/data";
+import "../../styles/header.scss"
 import clsx from 'clsx';
 
 const Items: FC = () => {
@@ -18,7 +18,7 @@ const Items: FC = () => {
                         "header__list-item",
                         {"header__list-item--active": pathname === item.to}
                     )}>
-                        <Icon name={item.icon}/>
+                        <Icon icon={item.icon}/>
                         {item.title}
                     </li>
                 </Link>
